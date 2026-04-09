@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sabrina Stoffel | Marketing Médico</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Be+Vietnam+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ve: #2C3B2D;
+    --vo: #6B7A4F;
+    --vs: #8E9E72;
+    --vc: #B5C49A;
+    --vn: #E8EFE0;
+    --cr: #F2EDE4;
+    --br: #FAFAF7;
+    --gr: #1E1E1C;
+    --ci: #6B6B63;
+    --ar: #D6CCBA;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cr);
+    color: var(--gr);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* GRAIN TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .header-eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--vo);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .header-name {
+    font-family: 'Lora', serif;
+    font-size: clamp(36px, 8vw, 52px);
+    font-weight: 400;
+    color: var(--ve);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+
+  .header-name em {
+    font-style: italic;
+    color: var(--vo);
+  }
+
+  .header-div {
+    width: 40px;
+    height: 1px;
+    background: var(--vc);
+    margin: 20px auto;
+  }
+
+  .header-tag {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ci);
+    font-weight: 400;
+  }
+
+  /* HERO STATEMENT */
+  .hero {
+    background: var(--ve);
+    border-radius: 4px;
+    padding: 48px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero::before {
+    content: '✦';
+    position: absolute;
+    top: -20px;
+    right: 30px;
+    font-size: 120px;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--vs);
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .hero-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 400;
+    color: var(--br);
+    line-height: 1.35;
+    margin-bottom: 20px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--vc);
+  }
+
+  .hero-div {
+    width: 32px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin-bottom: 20px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* SECTION */
+  .section {
+    background: var(--br);
+    border-radius: 4px;
+    padding: 40px;
+    margin-bottom: 16px;
+    border: 1px solid var(--ar);
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .section:nth-child(3) { animation-delay: 0.2s; }
+  .section:nth-child(4) { animation-delay: 0.3s; }
+  .section:nth-child(5) { animation-delay: 0.4s; }
+  .section:nth-child(6) { animation-delay: 0.5s; }
+
+  .section-eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--vo);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ve);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .section-title em { font-style: italic; color: var(--vo); }
+
+  .section-text {
+    font-size: 14px;
+    color: var(--ci);
+    line-height: 1.8;
+  }
+
+  .section-text strong {
+    font-weight: 500;
+    color: var(--gr);
+  }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .checklist li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    color: var(--ci);
+    line-height: 1.6;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--vn);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    background: var(--vn);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: 9px;
+    color: var(--vo);
+  }
+
+  /* PILARES */
+  .pilares {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .pilar {
+    background: var(--vn);
+    border-radius: 4px;
+    padding: 20px;
+  }
+
+  .pilar-num {
+    font-family: 'Lora', serif;
+    font-size: 28px;
+    color: var(--vc);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .pilar-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ve);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .pilar-text {
+    font-size: 12px;
+    color: var(--ci);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* PROOF */
+  .proof {
+    background: var(--vn);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-top: 16px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    border: 1px solid var(--vc);
+  }
+
+  .proof-num {
+    font-family: 'Lora', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--ve);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .proof-text {
+    font-size: 13px;
+    color: var(--ci);
+    line-height: 1.7;
+  }
+
+  .proof-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ve);
+    margin-bottom: 4px;
+  }
+
+  /* QUEM É */
+  .quem {
+    background: var(--ve);
+    border-radius: 4px;
+    padding: 40px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.8s 0.5s ease both;
+  }
+
+  .quem-eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--vs);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .quem-title {
+    font-family: 'Lora', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--br);
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  .quem-title em { font-style: italic; color: var(--vc); }
+
+  .quem-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.8;
+  }
+
+  .quem-text strong {
+    color: var(--br);
+    font-weight: 500;
+  }
+
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    padding: 48px 40px;
+    background: var(--br);
+    border-radius: 4px;
+    border: 1px solid var(--ar);
+    animation: fadeUp 0.8s 0.6s ease both;
+  }
+
+  .cta-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(24px, 5vw, 32px);
+    font-weight: 400;
+    color: var(--ve);
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .cta-title em { font-style: italic; color: var(--vo); }
+
+  .cta-sub {
+    font-size: 14px;
+    color: var(--ci);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ve);
+    color: var(--br);
+    text-decoration: none;
+    padding: 18px 40px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--vo);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-primary:hover::before { transform: scaleX(1); }
+  .btn-primary span { position: relative; z-index: 1; }
+
+  .btn-note {
+    font-size: 11px;
+    color: var(--ci);
+    margin-top: 16px;
+    letter-spacing: 0.5px;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding-top: 40px;
+    font-size: 11px;
+    color: var(--ar);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 8px 0;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ar);
+  }
+
+  .divider-star {
+    font-size: 10px;
+    color: var(--vc);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 480px) {
+    .container { padding: 40px 16px 60px; }
+    .hero { padding: 36px 28px; }
+    .section { padding: 32px 28px; }
+    .quem { padding: 32px 28px; }
+    .cta-section { padding: 36px 28px; }
+    .pilares { grid-template-columns: 1fr; }
+    .proof { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">✦ marketing médico</div>
+    <h1 class="header-name">Sabrina <em>Stoffel</em></h1>
+    <div class="header-div"></div>
+    <div class="header-tag">Especialista em posicionamento digital para médicos</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">✦ se você clicou nesse link</div>
+    <h2 class="hero-title">Você quer sair do posicionamento invisível e se tornar a <em>referência clara</em> na sua especialidade.</h2>
+    <div class="hero-div"></div>
+    <p class="hero-text">Esse perfil é o canal principal do meu trabalho.<br><br>
+    Aqui ajudo médicos e profissionais de saúde a saírem da invisibilidade digital e atraírem os <strong style="color:rgba(255,255,255,0.85);">pacientes certos</strong> — aqueles que chegam já confiantes, já convencidos, antes mesmo da primeira consulta.<br><br>
+    Não é sobre postar mais. É sobre <strong style="color:rgba(255,255,255,0.85);">posicionar melhor.</strong></p>
+  </div>
+
+  <!-- PARA QUEM É -->
+  <div class="section">
+    <div class="section-eyebrow">✦ isso é para você se</div>
+    <h2 class="section-title">Você reconhece <em>alguma</em> dessas situações:</h2>
+    <ul class="checklist">
+      <li><div class="check">✦</div><span>Seu Instagram existe, mas não representa quem você realmente é</span></li>
+      <li><div class="check">✦</div><span>Você posta mas não atrai os pacientes que quer atender</span></li>
+      <li><div class="check">✦</div><span>Já tentou criar conteúdo, mas não viu resultado e desistiu</span></li>
+      <li><div class="check">✦</div><span>Não tem tempo para se dedicar ao digital e não sabe por onde começar</span></li>
+      <li><div class="check">✦</div><span>Sente que o Instagram não é para médico — mas sabe que precisa estar lá</span></li>
+      <li><div class="check">✦</div><span>Depende só de indicação e quer construir algo mais previsível</span></li>
+    </ul>
+  </div>
+
+  <!-- O QUE RESOLVO -->
+  <div class="section">
+    <div class="section-eyebrow">✦ o que eu resolvo</div>
+    <h2 class="section-title">O problema não é falta de conteúdo.<br>É falta de <em>posicionamento.</em></h2>
+    <p class="section-text">
+      Quando o médico não tem claro o que o torna único — qualquer post vira genérico. Qualquer esforço vira ruído.<br><br>
+      O paciente certo passa pelo perfil sem parar. Não porque o médico é menos bom. Mas porque o digital não está mostrando o que ele tem de diferente.<br><br>
+      <strong>É exatamente isso que eu mudo.</strong>
+    </p>
+
+    <div class="divider" style="margin-top:28px;">
+      <div class="divider-line"></div>
+      <div class="divider-star">✦</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="pilares">
+      <div class="pilar">
+        <div class="pilar-num">01</div>
+        <div class="pilar-title">Construção de Posicionamento</div>
+        <div class="pilar-text">Extraio o diferencial real do médico antes de criar qualquer conteúdo</div>
+      </div>
+      <div class="pilar">
+        <div class="pilar-num">02</div>
+        <div class="pilar-title">Conteúdo Estratégico</div>
+        <div class="pilar-text">Cada post tem função — atrair, educar e filtrar o paciente certo</div>
+      </div>
+      <div class="pilar" style="grid-column: 1 / -1;">
+        <div class="pilar-num">03</div>
+        <div class="pilar-title">Estrutura de Conversão</div>
+        <div class="pilar-text">O perfil organizado para transformar interesse em consulta agendada</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTADO REAL -->
+  <div class="section">
+    <div class="section-eyebrow">✦ resultado real</div>
+    <h2 class="section-title">O que acontece quando a <em>estratégia está certa</em></h2>
+    <p class="section-text">Em um projeto recente com uma médica especialista em menopausa, criamos uma estratégia completa de posicionamento e conteúdo — do zero.</p>
+
+    <div class="proof">
+      <div class="proof-num">100+</div>
+      <div class="proof-text">
+        <strong>mulheres qualificadas em 30 dias</strong>
+        Após a entrega de um material gratuito via automação, mais de 100 mulheres disseram que queriam saber como marcar consulta — sem nenhum anúncio pago.
+      </div>
+    </div>
+
+    <p class="section-text" style="margin-top:20px; font-size:13px;">
+      Não foi sorte. Foi posicionamento claro + conteúdo com função + estrutura de conversão trabalhando juntos.
+    </p>
+  </div>
+
+  <!-- QUEM SOU -->
+  <div class="quem">
+    <div class="quem-eyebrow">✦ quem está por trás disso</div>
+    <h2 class="quem-title">Sou Sabrina Stoffel.<br>Especialista em <em>marketing médico.</em></h2>
+    <p class="quem-text">
+      Atuo há 5 anos em marketing digital. No último ano, me especializei exclusivamente no universo médico — porque entendo que o médico não precisa virar influencer. Precisa ser <strong>encontrado, confiado e escolhido.</strong><br><br>
+      Antes de criar qualquer conteúdo, mergulho na especialidade do meu cliente. Entendo quem ele é, quem ele quer atender e o que o torna único.<br><br>
+      O resultado é um perfil que parece escrito pelo próprio médico — não por uma agência.<br><br>
+      <strong>Atendo médicos e profissionais de saúde em todo o Brasil. 100% remoto.</strong>
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="cta-title">Quer entender como isso funcionaria <em>para você?</em></h2>
+    <p class="cta-sub">Clique abaixo e me chama no WhatsApp.<br>Faço uma análise gratuita e personalizada — sem compromisso.</p>
+    <a href="https://wa.me/5551995625913?text=Ol%C3%A1%20Sabrina!%20Vi%20seu%20perfil%20e%20quero%20entender%20como%20o%20seu%20trabalho%20funcionaria%20para%20mim." class="btn-primary">
+      <span>Quero entender como funciona →</span>
+    </a>
+    <p class="btn-note">Respondo pessoalmente · Sem pressão · Sem script de vendas</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    sabrina stoffel ✦ rise agência · marketing médico
+  </div>
+
+</div>
+
+</body>
+</html>
